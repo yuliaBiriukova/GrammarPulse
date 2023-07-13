@@ -14,5 +14,5 @@ public class Topic
 
     public ICollection<VersionEntity> Versions { get; set; }
 
-    public ICollection<Excercise> Excercises { get; set; }
+    public ICollection<Exercise> Exercises { get; set; }
 }

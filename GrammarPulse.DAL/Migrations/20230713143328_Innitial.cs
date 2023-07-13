@@ -2,10 +2,12 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace GrammarPulse.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class Innitial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -100,7 +102,7 @@ namespace GrammarPulse.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Excercises",
+                name: "Exercises",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -112,9 +114,9 @@ namespace GrammarPulse.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Excercises", x => x.Id);
+                    table.PrimaryKey("PK_Exercises", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Excercises_Topics_TopicId",
+                        name: "FK_Exercises_Topics_TopicId",
                         column: x => x.TopicId,
                         principalTable: "Topics",
                         principalColumn: "Id",
@@ -145,6 +147,19 @@ namespace GrammarPulse.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Levels",
+                columns: new[] { "Id", "Code", "Name" },
+                values: new object[,]
+                {
+                    { 1, "A1", "Beginner" },
+                    { 2, "A2", "Pre-Intermediate" },
+                    { 3, "B1", "Intermediate" },
+                    { 4, "B2", "Upper-Intermediate" },
+                    { 5, "C1", "Advanced" },
+                    { 6, "C2", "Proficient" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_CompletedTopics_TopicId",
                 table: "CompletedTopics",
@@ -156,8 +171,8 @@ namespace GrammarPulse.DAL.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Excercises_TopicId",
-                table: "Excercises",
+                name: "IX_Exercises_TopicId",
+                table: "Exercises",
                 column: "TopicId");
 
             migrationBuilder.CreateIndex(
@@ -184,7 +199,7 @@ namespace GrammarPulse.DAL.Migrations
                 name: "CompletedTopics");
 
             migrationBuilder.DropTable(
-                name: "Excercises");
+                name: "Exercises");
 
             migrationBuilder.DropTable(
                 name: "TopicVersions");

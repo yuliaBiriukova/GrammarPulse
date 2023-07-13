@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace GrammarPulse.BLL.EntityConfigurations;
 
-public class ExcerciseConfiguration : IEntityTypeConfiguration<Excercise>
+public class ExerciseConfiguration : IEntityTypeConfiguration<Exercise>
 {
-    public void Configure(EntityTypeBuilder<Excercise> builder)
+    public void Configure(EntityTypeBuilder<Exercise> builder)
     {
         builder.Property(e => e.Type).IsRequired();
 

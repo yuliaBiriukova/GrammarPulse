@@ -47,7 +47,7 @@ namespace GrammarPulse.DAL.Migrations
                     b.ToTable("CompletedTopics");
                 });
 
-            modelBuilder.Entity("GrammarPulse.BLL.Entities.Excercise", b =>
+            modelBuilder.Entity("GrammarPulse.BLL.Entities.Exercise", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -75,7 +75,7 @@ namespace GrammarPulse.DAL.Migrations
 
                     b.HasIndex("TopicId");
 
-                    b.ToTable("Excercises");
+                    b.ToTable("Exercises");
                 });
 
             modelBuilder.Entity("GrammarPulse.BLL.Entities.Level", b =>
@@ -242,10 +242,10 @@ namespace GrammarPulse.DAL.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("GrammarPulse.BLL.Entities.Excercise", b =>
+            modelBuilder.Entity("GrammarPulse.BLL.Entities.Exercise", b =>
                 {
                     b.HasOne("GrammarPulse.BLL.Entities.Topic", "Topic")
-                        .WithMany("Excercises")
+                        .WithMany("Exercises")
                         .HasForeignKey("TopicId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -286,7 +286,7 @@ namespace GrammarPulse.DAL.Migrations
 
             modelBuilder.Entity("GrammarPulse.BLL.Entities.Topic", b =>
                 {
-                    b.Navigation("Excercises");
+                    b.Navigation("Exercises");
                 });
 #pragma warning restore 612, 618
         }

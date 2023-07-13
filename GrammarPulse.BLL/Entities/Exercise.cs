@@ -2,11 +2,11 @@
 
 namespace GrammarPulse.BLL.Entities;
 
-public class Excercise
+public class Exercise
 {
     public int Id { get; set; }
 
-    public ExcerciseType Type { get; set; }
+    public ExerciseType Type { get; set; }
 
     public string UkrainianValue { get; set; }
 

@@ -11,7 +11,7 @@ public class GrammarPulseDbContext : DbContext
 
     public DbSet<VersionEntity> Versions { get; set; }
 
-    public DbSet<Excercise> Excercises { get; set; }
+    public DbSet<Exercise> Exercises { get; set; }
 
     public DbSet<User> Users { get; set; }
 
@@ -29,9 +29,9 @@ public class GrammarPulseDbContext : DbContext
             .HasForeignKey(t => t.LevelId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        modelBuilder.Entity<Excercise>()
+        modelBuilder.Entity<Exercise>()
             .HasOne(e => e.Topic)
-            .WithMany(t => t.Excercises)
+            .WithMany(t => t.Exercises)
             .HasForeignKey(e => e.TopicId)
             .OnDelete(DeleteBehavior.Cascade);
 

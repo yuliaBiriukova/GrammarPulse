@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrammarPulse", "GrammarPulse\GrammarPulse.csproj", "{9B4E589C-43F8-4D5A-8965-05B95C4FB4B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrammarPulse", "GrammarPulse\GrammarPulse.csproj", "{9B4E589C-43F8-4D5A-8965-05B95C4FB4B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrammarPulse.BLL", "GrammarPulse.BLL\GrammarPulse.BLL.csproj", "{D60063B5-AD25-4FCF-96D4-22EEEEE8ED55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrammarPulse.BLL", "GrammarPulse.BLL\GrammarPulse.BLL.csproj", "{D60063B5-AD25-4FCF-96D4-22EEEEE8ED55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrammarPulse.DAL", "GrammarPulse.DAL\GrammarPulse.DAL.csproj", "{DD4F86C6-57EE-4FA0-9A78-FC7AC9BB6612}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrammarPulse.DAL", "GrammarPulse.DAL\GrammarPulse.DAL.csproj", "{DD4F86C6-57EE-4FA0-9A78-FC7AC9BB6612}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -11,6 +11,6 @@ public class LevelProfile : Profile
     {
         CreateMap<Level, LevelDto>().ReverseMap();
         CreateMap<LevelAddViewModel, LevelDto>();
-        CreateMap<LevelDto, LevelViewModel>();
+        CreateMap<LevelDto, LevelViewModel>().ReverseMap();
     }
 }

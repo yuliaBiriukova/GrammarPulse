@@ -10,7 +10,7 @@ public class TopicProfile : Profile
     public TopicProfile() 
     {
         CreateMap<TopicDto, Topic>().ReverseMap();
-        CreateMap<TopicDto, TopicViewModel>();
+        CreateMap<TopicDto, TopicViewModel>().ReverseMap();
         CreateMap<TopicAddViewModel, TopicDto>();
     }
 }

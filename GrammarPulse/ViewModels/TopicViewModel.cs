@@ -5,4 +5,4 @@ public record TopicViewModel(
     string Name,
     string Content,
     int LevelId,
-    string Version);
+    int Version);

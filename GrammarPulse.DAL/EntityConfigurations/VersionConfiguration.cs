@@ -8,6 +8,6 @@ internal class VersionConfiguration : IEntityTypeConfiguration<VersionEntity>
 {
     public void Configure(EntityTypeBuilder<VersionEntity> builder)
     {
-        builder.Property(e => e.Name).IsRequired().HasMaxLength(16);
+        builder.Property(e => e.Version).IsRequired();
     }
 }

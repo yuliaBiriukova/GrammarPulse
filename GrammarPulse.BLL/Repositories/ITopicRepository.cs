@@ -4,7 +4,9 @@ namespace GrammarPulse.BLL.Repositories;
 
 public interface ITopicRepository
 {
-    Task<IEnumerable<Topic>> GetByLevelIdAsync(int levelId);  
+    Task<IEnumerable<Topic>> GetByLevelIdAsync(int levelId);
+
+    Task<Topic> GetByIdAsync(int id);
 
     Task<int> AddAsync(Topic topic);
 

@@ -16,7 +16,12 @@ public class TopicRepository : ITopicRepository
 
     public async Task<IEnumerable<Topic>> GetByLevelIdAsync(int levelId)
     {
-        return await _dbContext.Topics.Where(t => t.LevelId == levelId).ToListAsync();
+        return await _dbContext.Topics.Include(t => t.Versions).Where(t => t.LevelId == levelId).ToListAsync();
+    }
+
+    public async Task<Topic> GetByIdAsync(int id)
+    {
+        return await _dbContext.Topics.Include(t => t.Versions).SingleOrDefaultAsync(t => t.Id == id);
     }
 
     public async Task<int> AddAsync(Topic topic)

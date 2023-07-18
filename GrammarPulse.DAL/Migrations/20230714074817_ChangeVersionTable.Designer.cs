@@ -3,6 +3,7 @@ using GrammarPulse.DAL.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GrammarPulse.DAL.Migrations
 {
     [DbContext(typeof(GrammarPulseDbContext))]
-    partial class GrammarPulseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230714074817_ChangeVersionTable")]
+    partial class ChangeVersionTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

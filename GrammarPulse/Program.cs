@@ -12,10 +12,11 @@ builder.Services.AddDbContext<GrammarPulseDbContext>(options => options.UseSqlSe
 
 builder.Services.AddScoped<ILevelRepository, LevelRepository>();
 builder.Services.AddScoped<ITopicRepository, TopicRepository>();
-
+builder.Services.AddScoped<IExerciseRepository, ExerciseRepository>();
 
 builder.Services.AddScoped<ILevelService, LevelService>();
 builder.Services.AddScoped<ITopicService, TopicService>();
+builder.Services.AddScoped<IExerciseService, ExerciseService>();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 

@@ -6,5 +6,5 @@ public record TopicDto(
     int LevelId)
 {
     public int Id { get; set; }
-    public string? Version { get; set; }
+    public int Version { get; set; }
 }

@@ -26,18 +26,25 @@ public class TopicsController : ControllerBase
         return _mapper.Map<IEnumerable<TopicViewModel>>(topics);
     }
 
+    [HttpGet("{levelId}/{id}")]
+    public async Task<TopicViewModel> GetById(int levelId, int id)
+    {
+        var topic = await _topicService.GetByIdAsync(id);
+        return _mapper.Map<TopicViewModel>(topic);
+    }
+
     [HttpPost]
-    public async Task<ActionResult<TopicAddViewModel>> Add(TopicAddViewModel model)
+    public async Task<ActionResult<int>> Add(TopicAddViewModel model)
     {
         var id = await _topicService.AddAsync(_mapper.Map<TopicDto>(model));
-        return Ok(model);
+        return Ok(id);
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<TopicViewModel>> Update(int id, [FromBody]TopicViewModel model)
+    public async Task<ActionResult> Update(int id, [FromBody]TopicViewModel model)
     {
         await _topicService.UpdateAsync(_mapper.Map<TopicDto>(model));
-        return Ok(model);
+        return Ok();
     }
 
     [HttpDelete("{id}")]

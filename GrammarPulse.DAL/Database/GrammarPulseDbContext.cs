@@ -60,6 +60,9 @@ public class GrammarPulseDbContext : DbContext
             new { Id = 5, Code = "C1", Name = "Advanced" },
             new { Id = 6, Code = "C2", Name = "Proficient" });
 
+        modelBuilder.Entity<VersionEntity>().HasData(
+            new { Id = 1, Version = 1 });
+
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(GrammarPulseDbContext).Assembly);
     }
 }

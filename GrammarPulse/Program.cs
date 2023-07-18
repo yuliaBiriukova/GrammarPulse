@@ -13,6 +13,7 @@ builder.Services.AddDbContext<GrammarPulseDbContext>(options => options.UseSqlSe
 builder.Services.AddScoped<ILevelRepository, LevelRepository>();
 builder.Services.AddScoped<ITopicRepository, TopicRepository>();
 builder.Services.AddScoped<IExerciseRepository, ExerciseRepository>();
+builder.Services.AddScoped<IVersionRepository, VersionRepository>();
 
 builder.Services.AddScoped<ILevelService, LevelService>();
 builder.Services.AddScoped<ITopicService, TopicService>();

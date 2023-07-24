@@ -1,6 +1,8 @@
 ﻿namespace GrammarPulse.BLL.Models;
 
 public record LevelDto(
-    int Id,
     string Code,
-    string Name);
+    string Name)
+{
+    public int Id { get; set; }
+};

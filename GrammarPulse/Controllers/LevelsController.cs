@@ -30,7 +30,7 @@ namespace GrammarPulse.Controllers
         public async Task<ActionResult<LevelAddViewModel>> Add(LevelAddViewModel model)
         {
             var id  = await _levelService.AddAsync(_mapper.Map<LevelDto>(model));
-            return Ok(model);
+            return Ok(id);
         }
 
         [HttpPut("{id}")]

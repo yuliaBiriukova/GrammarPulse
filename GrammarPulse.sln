@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrammarPulse.BLL", "Grammar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrammarPulse.DAL", "GrammarPulse.DAL\GrammarPulse.DAL.csproj", "{DD4F86C6-57EE-4FA0-9A78-FC7AC9BB6612}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrammarPulse.BLL.UnitTests", "GrammarPulse.BLL.Tests\GrammarPulse.BLL.UnitTests.csproj", "{069F7388-666C-4D63-9880-A6E180C3E632}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrammarPulse.IntegrationTests", "GrammarPulse.IntegrationTests\GrammarPulse.IntegrationTests.csproj", "{07159C9B-5AE8-4C11-B6C6-32298BD0A327}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{DD4F86C6-57EE-4FA0-9A78-FC7AC9BB6612}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD4F86C6-57EE-4FA0-9A78-FC7AC9BB6612}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD4F86C6-57EE-4FA0-9A78-FC7AC9BB6612}.Release|Any CPU.Build.0 = Release|Any CPU
+		{069F7388-666C-4D63-9880-A6E180C3E632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{069F7388-666C-4D63-9880-A6E180C3E632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{069F7388-666C-4D63-9880-A6E180C3E632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{069F7388-666C-4D63-9880-A6E180C3E632}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07159C9B-5AE8-4C11-B6C6-32298BD0A327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07159C9B-5AE8-4C11-B6C6-32298BD0A327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07159C9B-5AE8-4C11-B6C6-32298BD0A327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07159C9B-5AE8-4C11-B6C6-32298BD0A327}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

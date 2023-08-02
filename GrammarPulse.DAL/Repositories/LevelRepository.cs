@@ -1,7 +1,7 @@
-﻿using GrammarPulse.BLL.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using GrammarPulse.BLL.Entities;
 using GrammarPulse.BLL.Repositories;
 using GrammarPulse.DAL.Database;
-using Microsoft.EntityFrameworkCore;
 
 namespace GrammarPulse.DAL.Repositories;
 
@@ -34,7 +34,12 @@ public class LevelRepository : ILevelRepository
 
     public async Task DeleteAsync(int id)
     {
-        _dbContext.Levels.Remove(new Level() { Id = id });
-        await _dbContext.SaveChangesAsync();
+        var levelToDelete = await _dbContext.Levels.FindAsync(id);
+
+        if (levelToDelete is not null)
+        {
+            _dbContext.Levels.Remove(levelToDelete);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

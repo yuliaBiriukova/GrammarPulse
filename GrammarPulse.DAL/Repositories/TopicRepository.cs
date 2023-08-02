@@ -39,7 +39,12 @@ public class TopicRepository : ITopicRepository
 
     public async Task DeleteAsync(int id)
     {
-        _dbContext.Remove(new Topic { Id = id });
-        await _dbContext.SaveChangesAsync();
+        var topicToDelete = await _dbContext.Topics.FindAsync(id);
+
+        if(topicToDelete is not null) 
+        {
+            _dbContext.Remove(topicToDelete);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

@@ -30,10 +30,12 @@ builder.Services.AddScoped<ILevelRepository, LevelRepository>();
 builder.Services.AddScoped<ITopicRepository, TopicRepository>();
 builder.Services.AddScoped<IExerciseRepository, ExerciseRepository>();
 builder.Services.AddScoped<IVersionRepository, VersionRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddScoped<ILevelService, LevelService>();
 builder.Services.AddScoped<ITopicService, TopicService>();
 builder.Services.AddScoped<IExerciseService, ExerciseService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 

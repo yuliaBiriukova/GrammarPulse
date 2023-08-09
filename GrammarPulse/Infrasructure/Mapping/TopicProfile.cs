@@ -4,11 +4,11 @@ using GrammarPulse.BLL.Models;
 using GrammarPulse.ViewModels;
 using Microsoft.IdentityModel.Tokens;
 
-namespace GrammarPulse.Infrasructure;
+namespace GrammarPulse.Infrasructure.Mapping;
 
 public class TopicProfile : Profile
 {
-    public TopicProfile() 
+    public TopicProfile()
     {
         CreateMap<TopicDto, Topic>();
 

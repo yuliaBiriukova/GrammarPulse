@@ -2,9 +2,25 @@ using GrammarPulse.BLL.Repositories;
 using GrammarPulse.BLL.Services;
 using GrammarPulse.DAL.Database;
 using GrammarPulse.DAL.Repositories;
+using GrammarPulse.Infrasructure.Validators;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(o =>
+{
+    o.SecurityTokenValidators.Clear();
+    o.SecurityTokenValidators.Add(new GoogleTokenValidator(builder.Configuration["Authentication:Google:ClientId"]));
+});
+
+builder.Services.AddAuthorization();
 
 var dbConfig = builder.Configuration["ConnectionStrings:DefaultConnection"];
 
@@ -47,9 +63,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthorization();
-app.UseCors(MyAllowSpecificOrigins);
 
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 

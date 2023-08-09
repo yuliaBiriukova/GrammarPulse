@@ -2,6 +2,7 @@
 using GrammarPulse.BLL.Models;
 using GrammarPulse.BLL.Services;
 using GrammarPulse.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GrammarPulse.Controllers;
@@ -33,6 +34,7 @@ public class TopicsController : ControllerBase
         return _mapper.Map<TopicViewModel>(topic);
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<ActionResult<int>> Add(TopicAddViewModel model)
     {
@@ -40,6 +42,7 @@ public class TopicsController : ControllerBase
         return Ok(id);
     }
 
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<ActionResult> Update(int id, [FromBody]TopicViewModel model)
     {
@@ -47,6 +50,7 @@ public class TopicsController : ControllerBase
         return Ok();
     }
 
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {

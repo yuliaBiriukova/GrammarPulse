@@ -3,7 +3,7 @@ using GrammarPulse.BLL.Entities;
 using GrammarPulse.BLL.Models;
 using GrammarPulse.ViewModels;
 
-namespace GrammarPulse.Infrasructure.Mapping;
+namespace GrammarPulse.Infrasructure;
 
 public class ExerciseProfile : Profile
 {

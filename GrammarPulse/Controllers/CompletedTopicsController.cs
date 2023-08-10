@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using GrammarPulse.BLL.Entities;
 using GrammarPulse.BLL.Models;
 using GrammarPulse.BLL.Services;
 using GrammarPulse.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace GrammarPulse.Controllers;
 
@@ -14,26 +14,49 @@ public class CompletedTopicsController : ControllerBase
 {
     private readonly IMapper _mapper;
     private readonly ICompletedTopicService _completedTopicService;
+    private readonly IUserService _userService;
 
-    public CompletedTopicsController(IMapper mapper, ICompletedTopicService completedTopicService)
+    public CompletedTopicsController(IMapper mapper, ICompletedTopicService completedTopicService, IUserService userService)
     {
         _mapper = mapper;
         _completedTopicService = completedTopicService;
+        _userService = userService;
     }
 
+    [Authorize]
     [HttpGet]
-    public async Task<CompletedTopicViewModel> Get(int topicId, int userId)
+    public async Task<CompletedTopicViewModel?> Get(int topicId)
     {
-        var completedTopic = await _completedTopicService.GetAsync(topicId, userId);
-        return _mapper.Map<CompletedTopicViewModel>(completedTopic);
+        var userEmail = User.FindFirst(ClaimTypes.Name)?.Value;
+        if (userEmail is not null)
+        {
+            var user = await _userService.GetUserByEmailAsync(userEmail);
+            if (user is not null)
+            {
+                var completedTopic = await _completedTopicService.GetAsync(topicId, user.Id);
+                return _mapper.Map<CompletedTopicViewModel>(completedTopic);
+            }
+        }
+        return null;
     }
 
     [Authorize]
     [HttpPost]
     public async Task<ActionResult<int>> Add(AddCompletedTopicViewModel model)
     {
-        var id = await _completedTopicService.AddAsync(_mapper.Map<CompletedTopicDto>(model));
-        return Ok(id);
+        var userEmail = User.FindFirst(ClaimTypes.Name)?.Value;
+        if (userEmail is not null)
+        {
+            var user = await _userService.GetUserByEmailAsync(userEmail);
+            if (user is not null)
+            {
+                var completedTopicToAdd = _mapper.Map<CompletedTopicDto>(model);
+                completedTopicToAdd.UserId = user.Id;
+                var id = await _completedTopicService.AddAsync(completedTopicToAdd);
+                return Ok(id);
+            }
+        }
+        return Ok();
     }
 
     [Authorize]

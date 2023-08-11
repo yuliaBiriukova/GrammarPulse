@@ -9,4 +9,4 @@ public record ExerciseDto (
     int TopicId)
 {
     public int Id { get; set; }
-};
+}

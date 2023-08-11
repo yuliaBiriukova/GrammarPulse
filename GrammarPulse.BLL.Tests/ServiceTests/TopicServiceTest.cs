@@ -5,7 +5,7 @@ using GrammarPulse.BLL.Entities;
 using GrammarPulse.BLL.Models;
 using GrammarPulse.BLL.Repositories;
 using GrammarPulse.BLL.Services;
-using GrammarPulse.Infrasructure;
+using GrammarPulse.Infrasructure.Mapping;
 using Moq;
 
 namespace GrammarPulse.BLL.Tests.ServiceTests;

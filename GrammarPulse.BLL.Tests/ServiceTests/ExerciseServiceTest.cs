@@ -4,7 +4,7 @@ using FluentAssertions;
 using GrammarPulse.BLL.Entities;
 using GrammarPulse.BLL.Repositories;
 using GrammarPulse.BLL.Services;
-using GrammarPulse.Infrasructure;
+using GrammarPulse.Infrasructure.Mapping;
 using Moq;
 
 namespace GrammarPulse.BLL.Tests.ServiceTests;

@@ -23,6 +23,8 @@ public class CompletedTopicsController : ControllerBase
         _userService = userService;
     }
 
+
+
     [Authorize]
     [HttpGet]
     public async Task<CompletedTopicViewModel?> Get(int topicId)
@@ -38,6 +40,23 @@ public class CompletedTopicsController : ControllerBase
             }
         }
         return null;
+    }
+
+    [Authorize]
+    [HttpGet("{levelId}")]
+    public async Task<IEnumerable<CompletedTopicViewModel>> GetByLevel(int levelId)
+    {
+        var userEmail = User.FindFirst(ClaimTypes.Name)?.Value;
+        if (userEmail is not null)
+        {
+            var user = await _userService.GetUserByEmailAsync(userEmail);
+            if (user is not null)
+            {
+                var completedTopics = await _completedTopicService.GetByLevelAsync(levelId, user.Id);
+                return _mapper.Map<IEnumerable<CompletedTopicViewModel>>(completedTopics);
+            }
+        }
+        return new List<CompletedTopicViewModel>();
     }
 
     [Authorize]

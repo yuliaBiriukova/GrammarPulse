@@ -28,6 +28,12 @@ public class CompletedTopicService : ICompletedTopicService
         return _mapper.Map<CompletedTopicDto>(completedTopic);
     }
 
+    public async Task<IEnumerable<CompletedTopicDto>> GetByLevelAsync(int levelId, int userId)
+    {
+        var completedTopics = await _completedTopicRepository.GetByLevelAsync(levelId, userId);
+        return _mapper.Map<IEnumerable<CompletedTopicDto>>(completedTopics);
+    }
+
     public async Task UpdateAsync(CompletedTopicDto completedTopic)
     {
         var updatedCompletedTopic = _mapper.Map<CompletedTopic>(completedTopic);

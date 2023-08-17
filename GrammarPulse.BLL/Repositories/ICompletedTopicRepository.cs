@@ -8,5 +8,7 @@ public interface ICompletedTopicRepository
 
     Task<CompletedTopic?> GetAsync(int topicId, int userId);
 
+    Task<IEnumerable<CompletedTopic>> GetByLevelAsync(int levelId, int userId);
+
     Task UpdateAsync(CompletedTopic completedTopic);
 }

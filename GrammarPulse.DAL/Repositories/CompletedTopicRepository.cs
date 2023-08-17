@@ -26,6 +26,14 @@ public class CompletedTopicRepository : ICompletedTopicRepository
         return await _dbContext.CompletedTopics.FirstOrDefaultAsync(t => t.TopicId == topicId && t.UserId == userId);
     }
 
+    public async Task<IEnumerable<CompletedTopic>> GetByLevelAsync(int levelId, int userId)
+    {
+        return await _dbContext.CompletedTopics
+            .Include(ct => ct.Topic)
+            .Where(ct => ct.UserId == userId && ct.Topic.LevelId == levelId)
+            .ToListAsync();
+    }
+
     public async Task UpdateAsync(CompletedTopic completedTopic)
     {
         _dbContext.Update(completedTopic);

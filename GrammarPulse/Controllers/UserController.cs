@@ -28,8 +28,10 @@ public class UserController : ControllerBase
             var user = await _userService.GetUserByEmailAsync(userEmail);
             if (user is null)
             {
-                var id = await _userService.AddUserAsync(new UserDto(userEmail, UserRole.Admin));
+                var id = await _userService.AddUserAsync(new UserDto(userEmail, UserRole.Student));
+                user = await _userService.GetUserByIdAsync(id);
             }
+            return Ok(user?.Role);
         }
         return Ok();
     }
